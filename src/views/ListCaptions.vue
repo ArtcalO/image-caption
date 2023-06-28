@@ -20,7 +20,7 @@
         </ion-item>
       </ion-list>
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button>
+        <ion-fab-button @click="openAddCaption">
           <ion-icon :icon="add"></ion-icon>
         </ion-fab-button>
       </ion-fab>
@@ -47,6 +47,7 @@ import {
 } from '@ionic/vue';
 import {add} from "ionicons/icons"
 import DetailsCaption from "../components/DetailsCaption.vue"
+import AddCaption from "../components/AddCaption.vue"
 export default {
   components:{
     IonContent,
@@ -66,6 +67,7 @@ export default {
   data(){
     return {
       add,
+      add_caption_shown:false,
       liste_captions:[
         {
           id:1,
@@ -97,6 +99,20 @@ export default {
       })
       modal.present();
 
+    },
+    appendToList(data){
+      this.liste_captions.push(data)
+    },
+    async openAddCaption(){
+      const modal = await modalController.create({
+        component:AddCaption,
+      })
+      modal.present();
+
+      const {data, role} = await modal.onWillDismiss();
+
+      if(role==="addCaptionEmited")
+        this.appendToList(data)
     }
   }
 }

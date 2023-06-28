@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">gestion-conge-mobile</string>
+    <string name="title_activity_main">gestion-conge-mobile</string>
+    <string name="package_name">bi.hogi.imagecaption</string>
+    <string name="custom_url_scheme">bi.hogi.imagecaption</string>
+</resources>
