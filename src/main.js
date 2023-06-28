@@ -5,6 +5,7 @@ import router from './router';
 import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import '@ionic/vue/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
@@ -28,5 +29,6 @@ const app = createApp(App)
   .use(router);
   
 router.isReady().then(() => {
-  app.mount('#app');
+  app.mount('#app')
+  defineCustomElements(window)
 });

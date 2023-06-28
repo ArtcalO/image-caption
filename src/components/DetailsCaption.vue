@@ -8,7 +8,16 @@
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <h1>{{captionProps}}</h1>
+        <ion-card>
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Date : {{captionProps.date}}</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              {{captionProps.caption}}
+            </ion-card-content>
+          </ion-card>
     </ion-content>
 </template>
 
@@ -20,7 +29,8 @@ import {
     IonButton,
     IonTitle,
     IonContent,
-    modalController
+    modalController,
+    IonCard, IonCardContent, IonCardHeader, IonCardTitle
 } from '@ionic/vue'
 export default {
 
@@ -31,7 +41,8 @@ export default {
     IonButtons,
     IonButton,
     IonTitle,
-    IonContent
+    IonContent,
+    IonCard, IonCardContent, IonCardHeader, IonCardTitle
   },
   props:["captionProps"],
   data() {
